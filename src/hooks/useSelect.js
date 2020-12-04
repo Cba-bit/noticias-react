@@ -20,6 +20,4 @@ const useSelect = (stateInicial, opciones) => {
     return [state, selectNoticias];
 };
 
-// c731c8b64eb245ae99ce6f3a3269fbc2
-
 export default useSelect;
