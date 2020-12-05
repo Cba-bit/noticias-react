@@ -1,6 +1,7 @@
 import React from 'react';
 import useSelect from '../hooks/useSelect';
 import styles from './Formulario.module.css';
+import PropTypes from 'prop-types';
 
 const Formulario = ({ setCategoria }) => {
     // crear las opciones
@@ -45,6 +46,10 @@ const Formulario = ({ setCategoria }) => {
             </div>
         </div>
     );
+};
+
+Formulario.propTypes = {
+    setCategoria: PropTypes.func.isRequired,
 };
 
 export default Formulario;
