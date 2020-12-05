@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from 'react';
 import Formulario from './components/Formulario';
 import Header from './components/Header';
+import ListadoNoticias from './components/ListadoNoticias';
 
 function App() {
     // definir la categoria y noticias
@@ -26,6 +27,7 @@ function App() {
 
             <div className='container-white'>
                 <Formulario setCategoria={setCategoria} />
+                <ListadoNoticias noticias={noticias} />
             </div>
         </Fragment>
     );
