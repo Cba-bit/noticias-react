@@ -7,6 +7,7 @@ function App() {
     // definir la categoria y noticias
     const [categoria, setCategoria] = useState('');
     const [noticias, setNoticias] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const consultarAPI = async () => {
@@ -16,6 +17,7 @@ function App() {
             const noticias = await respuesta.json();
 
             setNoticias(noticias.articles);
+            setLoading(false);
         };
 
         consultarAPI();
@@ -25,10 +27,12 @@ function App() {
         <Fragment>
             <Header titulo='Buscador de Noticias' />
 
-            <div className='container-white'>
-                <Formulario setCategoria={setCategoria} />
-                <ListadoNoticias noticias={noticias} />
-            </div>
+            {!loading ? (
+                <div className='container-white'>
+                    <Formulario setCategoria={setCategoria} />
+                    <ListadoNoticias noticias={noticias} />
+                </div>
+            ) : null}
         </Fragment>
     );
 }
